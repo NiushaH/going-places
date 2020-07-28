@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   # GET /signup  -- New User Action
   def new 
-    if session[:current_user_id]
+    if logged_in?
       redirect_to "/", :notice => "Already logged in!"
     end
   end

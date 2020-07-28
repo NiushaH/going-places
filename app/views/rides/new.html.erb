@@ -5,11 +5,18 @@
 %>
 
 <%= form_tag("/rides") do %>
+  <%= label_tag "Departure Address"%>
+  <%= text_field_tag "Departure Address" %>
+  <%= label_tag "Destination Address"%>
+  <%= text_field_tag "Destination Address"%>
 
+  <%# ONLY USE HIDDEN_FIELD_TAG IF INFO IS NOT AVAILABLE IN CURRENT SESSION %>
+  <%# 
+  <% hidden_field_tag "hitchhiker_user_id", @current_user.id %>
 
-
+  <%= submit_tag value="Make ride request"%>
 <% end %>
 
 
-<%# HIGHEST LEVEL OF ABSTRACTION USING ActionView IN RAILS
+<%# HIGHEST LEVEL OF ABSTRACTION USING ActionView MAGIC IN RAILS
 <%= form_for(@rides) %> 
