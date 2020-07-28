@@ -1,0 +1,15 @@
+<h1>Request a Ride</h1>
+
+<%#  BASIC LEVEL HARD CODE HTML
+<form action="/rides" method="POST"> 
+%>
+
+<%= form_tag("/rides") do %>
+
+
+
+<% end %>
+
+
+<%# HIGHEST LEVEL OF ABSTRACTION USING ActionView IN RAILS
+<%= form_for(@rides) %> 
