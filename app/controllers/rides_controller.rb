@@ -6,6 +6,8 @@ class RidesController < ApplicationController
 
   def index
     @rides = Ride.all
+    # logic for index is on ERB page instead of in controller (e.g. status method, see minute 43 in https://www.youtube.com/watch?v=JfJ8qG-E1Og)
+    # what's a best practice?
   end
 
   # acting as an edit form
@@ -30,7 +32,8 @@ class RidesController < ApplicationController
     @ride.hitchhiker_user_id = @current_user.id
     @ride.driver_user_id = 0
     if @ride.save
-      redirect_to "/rides"
+      # REDIRECT TO USERS SHOW PAGE
+      redirect_to "/"
     else
       raise @ride.errors.inspect
     end
