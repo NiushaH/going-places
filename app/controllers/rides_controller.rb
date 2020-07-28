@@ -16,7 +16,7 @@ class RidesController < ApplicationController
   def update
     @ride = Ride.find(params[:id])
     #make sure code is describing what it's doing, not how it's doing it
-    if @ride.accepted_by(current_user)
+    if @ride.accepted_by(current_user.id)
       redirect_to @ride
     else
       render :index

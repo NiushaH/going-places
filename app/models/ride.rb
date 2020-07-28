@@ -6,11 +6,12 @@ class Ride < ApplicationRecord
   belongs_to :driver_user, :class_name => "User", :optional => true
 
   def accepted_by(user)
+    # @ride.driver_user_id = @current_user.id
     self.update(:driver_user_id => user)
   end
 
-  def ride_matched_with_driver?
-    true if driver_user_id != 0
+  def ride_still_needed?
+    true if driver_user_id == 0
   end
 
 end

@@ -1,18 +1,18 @@
 <h1>Hitchhiker Ride Request #<%= @ride.id%></h1>
-<h3><strong>Date Would Like to Depart: </strong><%= @ride.hitchhiker_user.name%></h3>
+<%# <h3><strong>Date Would Like to Depart: </strong><%= %>
 <h3><strong>Departure Pickup Location: </strong><%= @ride.departure%></h3>
 <h3><strong>Ride Drop Off Location: </strong><%= @ride.destination%></h3>
-
-
+<br>
+<br>
 <h2>About the Hitchhiker</h2>
 <h3><strong>Name: </strong><%= @ride.hitchhiker_user.name%></h3>
 <%# ADD IN hobbies, interests, conversation type, rating, driver comments, etc. %>
 
-<% if @ride.ride_matched_with_driver?  %>
+<% if @ride.ride_still_needed?  %>
     <h1>Would you like to be the driver for this hitchhiker request?</h1>
       <%= form_for(@ride) do |r| %>
       <%= r.submit "Yes, give this hitchhiker a ride" %>
       <% end %>
 <% else %>
-  <h3>Driver to Give Hitchhiker this ride: <%= @ride.hitchhiker_user.name%></h3>
+  <h3>Driver Committed to FulFill Hitchhiker's Ride Request:  <%= @ride.driver_user.name %></h3>
 <% end %>
