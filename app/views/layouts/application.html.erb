@@ -11,7 +11,7 @@
 
   <body>
     <%# CHANGE LINE BELOW TO READ AS WHAT CODE IS DOING (if logged_in?), NOT HOW ITS DOING IT %>
-    <% if session[:current_user_id] %>
+    <% if logged_in? %>
     <nav>
       You are logged in as: <%= @current_user.email %> | <a href="/logout">Logout</a>
     </nav>

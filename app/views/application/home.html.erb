@@ -2,4 +2,6 @@
 
 <h2>Welcome to Going Places</h2>
 
-<a href="/login">Sign In</a>  |  <a href="/signup">Sign Up</a>
+<% if !logged_in? %>
+  <a href="/login">Sign In</a>  |  <a href="/signup">Sign Up</a>
+<% end %>
