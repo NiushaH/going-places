@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hitchhiker_user_id: 1
+  waypoint_departure: MyString
+  waypoint_destination: MyString
+  travel_start_date: MyString
+  driver_user_id: 1
+
+two:
+  hitchhiker_user_id: 1
+  waypoint_departure: MyString
+  waypoint_destination: MyString
+  travel_start_date: MyString
+  driver_user_id: 1

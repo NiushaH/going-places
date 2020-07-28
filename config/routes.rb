@@ -8,11 +8,14 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
   
-  get '/sessions', to: 'users#show'
-
   get '/logout', to: 'sessions#destroy'
 
+  # get '/sessions', to: 'users#show'
+
+  # used 'rails routes' helper command to generate all routes
+  resources :rides
+
+
+
   root 'application#home'
-
-
 end
