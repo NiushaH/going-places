@@ -1,8 +1,17 @@
-<h1>All Rides</h1>
-
-<ol>
-<% @rides.each do |r| %>
-<%# SHOW HITCHIKER.NAME and DRIVER.NAME %>
-  <p><strong>Departing: </strong><%= r.departure %>      <strong>Destination: </strong><%= r.destination %> </p>
-<% end %>
+<h1>List of Rides Needed</h1>
+  <%# <% if @rides.active = 0 %>
+    <%# <p><strong>At the moment, there aren't any hitchhikers looking for a ride.</strong></p> %>
+  <%# <% else %>
+    <ol>
+    <% @rides.each do |r| %>
+    <%# SHOW HITCHIKER.NAME and DRIVER.NAME %>
+      <% if r.hitchhiker_user_id != @current_user.id && driver_user_id = 0 %>
+      <p><strong>From </strong><%= r.departure %><strong> to </strong><%= r.destination %> </p>
+      <p><%= link_to "Hitchhiker #{r.hitchhiker_user.name}'s Ride Request Details", ride_path(r) %></a></p>
+      <%# <p><strong>Matched with Driver?  If yes, driver's name is: </strong> <%= r.driver_user.name%>  </p>
+      <% end%>
+    <br>
+    <br>
+    <% end %>
+  <%# <% end %>
 </ol>

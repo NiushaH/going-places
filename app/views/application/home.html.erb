@@ -1,6 +1,8 @@
-<h1>Need a ride?</h1>
+<h1>Welcome</h1>
+<h2><%= link_to "Are you going places?", rides_path %></h2>
 
-<h2>Welcome to Going Places</h2>
+<h2><%= link_to "Or, do you need a ride?", new_ride_path %></h2>
+
 
 <% if !logged_in? %>
   <a href="/login">Sign In</a>  |  <a href="/signup">Sign Up</a>

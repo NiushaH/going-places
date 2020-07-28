@@ -8,5 +8,5 @@ class ApplicationController < ActionController::Base
   def home
     @magic = "Surprise!"
   end
-
+  
 end
