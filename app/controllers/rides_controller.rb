@@ -1,7 +1,11 @@
 class RidesController < ApplicationController
-  before_action :logged_in?
+  before_action :authentication_required
 
   def new
+  end
+
+  def index
+    @rides = Ride.all
   end
 
   def create
@@ -16,4 +20,11 @@ class RidesController < ApplicationController
     end
   end
 
+  private
+  # Strong params is required only when you are assigning mass data.
+  # User.new(params[:user])  # Won't Work!!
+  # User.new(user_params)  # Sanitized
+
+  def ride_params
+  end
 end

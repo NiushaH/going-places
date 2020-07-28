@@ -1,0 +1,8 @@
+<h1>All Rides</h1>
+
+<ol>
+<% @rides.each do |r| %>
+<%# SHOW HITCHIKER.NAME and DRIVER.NAME %>
+  <p><strong>Departing: </strong><%= r.departure %>      <strong>Destination: </strong><%= r.destination %> </p>
+<% end %>
+</ol>

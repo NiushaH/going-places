@@ -9,11 +9,4 @@ class ApplicationController < ActionController::Base
     @magic = "Surprise!"
   end
 
-  # HELPERS / METHODS USED IN OTHER ACTIONS
-  private
-  def logged_in?
-    # current_user ? true : false
-    !!current_user
-  end
-
 end
