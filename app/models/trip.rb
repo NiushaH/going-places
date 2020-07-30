@@ -1,4 +1,4 @@
-class Trip < ApplicationRecord
+class Trips < ApplicationRecord
   # table deleted
   
 end

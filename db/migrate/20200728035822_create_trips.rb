@@ -1,4 +1,4 @@
-class DropTrips < ActiveRecord::Migration[6.0]
+class CreateTrips < ActiveRecord::Migration[6.0]
   def change
     drop_table :trips do |t|
       t.integer :hitchhiker_user_id, null: false

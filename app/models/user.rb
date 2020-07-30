@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # ActiveRecord automatically includes ActiveModel::SecurePassword
+  has_secure_password
+  # has_secure_password :recovery_password, validations: false
 #   has_many :cars
 #   has_many :drives
 #   has_many :trips
