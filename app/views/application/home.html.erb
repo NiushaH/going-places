@@ -1,11 +1,10 @@
-<h1>Welcome <%=current_user.name %>!</h1>
-<h2><%= link_to "Are you going places?", rides_path %></h2>
-
-<h2><%= link_to "Or, do you need a ride?", new_ride_path %></h2>
-
-
 <% if !logged_in? %>
+  <h1>Welcome</h1>
+  <h2>Please sign up or in to arrange your hitchhiking trip or offer hitchhikers a ride.</h2>
   <a href="/login">Sign In</a>  |  <a href="/signup">Sign Up</a>
 <% else %>
+  <h1>Welcome <%= current_user.name %>!</h1>
+  <h2><%= link_to "Are you going places?", rides_path %></h2>
+  <h2><%= link_to "Or, do you need a ride?", new_ride_path %></h2>
   <a href="/logout">Sign Out</a>
 <% end %>

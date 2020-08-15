@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   def home
     @magic = "Surprise!"
   end
-
     
   def login(user)
     session[:current_user_id] = @user.id
@@ -18,6 +17,5 @@ class ApplicationController < ActionController::Base
   def logout(user)
     session
   end
-
 
 end
