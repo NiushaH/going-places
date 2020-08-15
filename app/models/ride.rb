@@ -1,29 +1,22 @@
 class Ride < ApplicationRecord
+  belongs_to :trip
+  belongs_to :drive
+
   # Alias Associations
-  # Self-Referencing
-  belongs_to :hitchhiker_user, :class_name => "User"
-  # user-friendliness feature -- add list of possible drivers and hitchhiker can select one
-  belongs_to :driver_user, :class_name => "User", :optional => true
+  belongs_to :driver, class_name: "User", through: :drives
+  belongs_to :hitchhiker, class_name: "User", through: :trips
+  
+  # def ride_created_by(user)
+  #   # @ride.driver_user_id = @current_user.id
+  #   self.update(:hitchhiker_user_id => user)
+  # end
 
   def accepted_by(user)
     # @ride.driver_user_id = @current_user.id
     self.update(:driver_user_id => user)
   end
-
+  
   def ride_still_needed?
     true if driver_user_id == 0
-  end
-
+  end 
 end
-
-
-
-# ride = Ride.new
-# ride.hitchhiker_user_id = 2
-# ride.driver_user_id = 3
-# ride.save
-# ride.hitchhiker_user = User.find_by(:hitchhiker_user_id => params[:id])
-# ride.hitchhiker_name = ride.hitchhiker_user.name
-
-
-# Ride.active  # => Return all the open trip requests without drivers matched for rides

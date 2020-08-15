@@ -1,14 +1,14 @@
 class SessionsController < ApplicationController
-  include SessionsHelper
+    include SessionsHelper
 
     def new 
-      
+
     end
-  
+
     # POST /users  -- Create the User Action
     def create
       @user = User.find_by(:email => params[:email])
-      if @user
+      if @user && @user.authenticate(params[:password])
         #store user in session
         login(@user)
         redirect_to "/"
@@ -21,5 +21,5 @@ class SessionsController < ApplicationController
       reset_session
       redirect_to "/"
     end
-
 end
+  

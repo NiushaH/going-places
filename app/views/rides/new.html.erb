@@ -5,13 +5,13 @@
 %>
 
 <%= form_tag("/rides") do %>
-  <%= label_tag "Departure Address"%>
-  <%= text_field_tag "Departure Address" %>
-  <%= label_tag "Destination Address"%>
-  <%= text_field_tag "Destination Address"%>
+  <%= label_tag "departure"%>
+  <%= text_field_tag "departure" %>
+  <%= label_tag "destination"%>
+  <%= text_field_tag "destination"%>
 
   <%# ONLY USE HIDDEN_FIELD_TAG IF INFO IS NOT AVAILABLE IN CURRENT SESSION %>
-  <%# <% hidden_field_tag "hitchhiker_user_id", @current_user.id %>
+  <%# <% hidden_field_tag "hitchhiker", @current_user.id %>
 
   <%= submit_tag value="Make ride request"%>
 <% end %>
