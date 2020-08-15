@@ -10,41 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_052807) do
+ActiveRecord::Schema.define(version: 2020_08_12_005336) do
 
-  create_table "rides", force: :cascade do |t|
-    t.integer "driver_user_id"
-    t.integer "hitchhiker_user_id"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "cars", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "license_plate"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "drives", force: :cascade do |t|
     t.string "departure"
     t.string "destination"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "driver_id", null: false
+    t.bigint "car_id", null: false
+    t.index ["car_id"], name: "index_drives_on_car_id"
+    t.index ["driver_id"], name: "index_drives_on_driver_id"
+  end
+
+  create_table "rides", force: :cascade do |t|
+    t.string "ride_photos"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "pickup"
+    t.string "dropoff"
+    t.bigint "hitchhiker_id", null: false
+    t.bigint "driver_id", null: false
+    t.index ["driver_id"], name: "index_rides_on_driver_id"
+    t.index ["hitchhiker_id"], name: "index_rides_on_hitchhiker_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "waypoint_departure"
+    t.string "waypoint_destination"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "hitchhiker_id", null: false
+    t.index ["hitchhiker_id"], name: "index_trips_on_hitchhiker_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "address"
-    t.string "cellphone"
-    t.string "birthdate"
-    t.string "profile_photo"
-    t.string "payment_info"
-    t.string "music_preferences"
-    t.string "conversation_type"
-    t.string "hobbies"
-    t.string "profession"
-    t.string "alma_mater"
-    t.integer "user_role"
-    t.integer "trips"
-    t.integer "drives"
-    t.integer "cars"
-    t.integer "mvr_rating"
-    t.integer "rating_received"
-    t.integer "ratings_given"
-    t.string "comments_received"
-    t.string "comments_given"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "drives", "cars"
+  add_foreign_key "drives", "users", column: "driver_id"
+  add_foreign_key "rides", "users", column: "driver_id"
+  add_foreign_key "rides", "users", column: "hitchhiker_id"
+  add_foreign_key "trips", "users", column: "hitchhiker_id"
 end

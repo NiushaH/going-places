@@ -5,6 +5,7 @@ class CreateRides < ActiveRecord::Migration[6.0]
       t.integer :hitchhiker_user_id
       t.string :departure
       t.string :destination
+      t.string :ride_photos
 
       t.timestamps
     end
