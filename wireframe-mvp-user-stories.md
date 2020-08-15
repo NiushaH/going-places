@@ -1,5 +1,10 @@
 Planning a Hitchhiker Rideshare App
- 
+
+  * A hitchhiker can sign up and note a trip for which they need rides.
+  * A driver can sign up and denote a drive they plan to take and may share rides to hitchhikers.
+
+
+
 GET /signup
   present a signup form with email address being the authentication attribute 
 POST /users

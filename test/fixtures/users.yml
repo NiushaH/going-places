@@ -3,45 +3,19 @@
 one:
   name: MyString
   email: MyString
-  address: MyString
-  cellphone: MyString
-  birthdate: MyString
-  profile_photo: MyString
-  payment_info: MyString
-  music_preferences: MyString
-  conversation_type: MyString
-  hobbies: MyString
-  profession: MyString
-  alma_mater: MyString
-  user_role: 1
-  trips: 1
-  drives: 1
-  cars: 1
-  mvr_rating: 1
-  rating_received: 1
-  ratings_given: 1
-  comments_received: MyString
-  comments_given: MyString
+  password_digest: MyString
+  car_id: 1
+  trip_id: 1
+  drive_id: 1
+  hitchhiker_user_id: 1
+  driver_user_id: 1
 
 two:
   name: MyString
   email: MyString
-  address: MyString
-  cellphone: MyString
-  birthdate: MyString
-  profile_photo: MyString
-  payment_info: MyString
-  music_preferences: MyString
-  conversation_type: MyString
-  hobbies: MyString
-  profession: MyString
-  alma_mater: MyString
-  user_role: 1
-  trips: 1
-  drives: 1
-  cars: 1
-  mvr_rating: 1
-  rating_received: 1
-  ratings_given: 1
-  comments_received: MyString
-  comments_given: MyString
+  password_digest: MyString
+  car_id: 1
+  trip_id: 1
+  drive_id: 1
+  hitchhiker_user_id: 1
+  driver_user_id: 1
