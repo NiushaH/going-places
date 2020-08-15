@@ -12,10 +12,9 @@ Rails.application.routes.draw do
 
   # get '/sessions', to: 'users#show'
 
-  # used 'rails routes' helper command to generate all RESTful routes
+  # used 'rails routes' helper command to generate all 
+  #   typical CRUD action-related RESTful routes
   resources :rides
-
-
 
   root 'application#home'
 end
