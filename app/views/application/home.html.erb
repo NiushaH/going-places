@@ -3,8 +3,9 @@
   <h2>Please sign up or in to arrange your hitchhiking trip or offer hitchhikers a ride.</h2>
   <a href="/login">Sign In</a>  |  <a href="/signup">Sign Up</a>
 <% else %>
-  <h1>Welcome <%= current_user.name %>!</h1>
-  <h2><%= link_to "Are you planning to drive somewhere?", rides_path %></h2>
-  <h2><%= link_to "Or, do you need a ride?", new_trip_path %></h2>
+  <h1>Welcome to GoingPlaces, <%= current_user.name %>!</h1>
+  <h2>Please click on the following which best describes your situation:</h2>
+    <h3><%= link_to "Are you a hitchhiker going on a trip, looking for a ride?", new_trip_path %></h3>
+    <h3><%= link_to "Or, would you like to be a driver matched to give someone a ride?", rides_path %></h3>
   <a href="/logout">Sign Out</a>
 <% end %>
