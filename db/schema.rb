@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_064708) do
+ActiveRecord::Schema.define(version: 2020_08_17_073505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,16 +23,34 @@ ActiveRecord::Schema.define(version: 2020_08_17_064708) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "hitchhiker_id", null: false
+    t.bigint "driver_id", null: false
+    t.index ["driver_id"], name: "index_comments_on_driver_id"
+    t.index ["hitchhiker_id"], name: "index_comments_on_hitchhiker_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "hitchhiker_id", null: false
+    t.bigint "driver_id", null: false
+    t.index ["driver_id"], name: "index_ratings_on_driver_id"
+    t.index ["hitchhiker_id"], name: "index_ratings_on_hitchhiker_id"
+  end
+
   create_table "rides", force: :cascade do |t|
     t.string "ride_photos"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "pickup"
     t.string "dropoff"
-    t.bigint "hitchhiker_id", null: false
     t.bigint "driver_id", null: false
     t.index ["driver_id"], name: "index_rides_on_driver_id"
-    t.index ["hitchhiker_id"], name: "index_rides_on_hitchhiker_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -52,7 +70,10 @@ ActiveRecord::Schema.define(version: 2020_08_17_064708) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "comments", "users", column: "driver_id"
+  add_foreign_key "comments", "users", column: "hitchhiker_id"
+  add_foreign_key "ratings", "users", column: "driver_id"
+  add_foreign_key "ratings", "users", column: "hitchhiker_id"
   add_foreign_key "rides", "users", column: "driver_id"
-  add_foreign_key "rides", "users", column: "hitchhiker_id"
   add_foreign_key "trips", "users", column: "hitchhiker_id"
 end
