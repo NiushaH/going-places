@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_005336) do
+ActiveRecord::Schema.define(version: 2020_08_17_064708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,17 +21,6 @@ ActiveRecord::Schema.define(version: 2020_08_12_005336) do
     t.string "license_plate"
     t.integer "user_id"
     t.index ["user_id"], name: "index_cars_on_user_id"
-  end
-
-  create_table "drives", force: :cascade do |t|
-    t.string "departure"
-    t.string "destination"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "driver_id", null: false
-    t.bigint "car_id", null: false
-    t.index ["car_id"], name: "index_drives_on_car_id"
-    t.index ["driver_id"], name: "index_drives_on_driver_id"
   end
 
   create_table "rides", force: :cascade do |t|
@@ -63,8 +52,6 @@ ActiveRecord::Schema.define(version: 2020_08_12_005336) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "drives", "cars"
-  add_foreign_key "drives", "users", column: "driver_id"
   add_foreign_key "rides", "users", column: "driver_id"
   add_foreign_key "rides", "users", column: "hitchhiker_id"
   add_foreign_key "trips", "users", column: "hitchhiker_id"

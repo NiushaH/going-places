@@ -1,15 +1,9 @@
 class Ride < ApplicationRecord
-  belongs_to :trip
-  belongs_to :drive
-
-  # Alias Associations (accessible via users' has_many associations)
-  # # belongs_to :driver, class_name: "User", through: :drives
-  # # belongs_to :hitchhiker, class_name: "User", through: :trips
-  
-  # def ride_created_by(user)
-  #   # @ride.driver_user_id = @current_user.id
-  #   self.update(:hitchhiker_user_id => user)
-  # end
+  has_one :driver
+  has_one :car, through: :driver
+  has_many :trips
+  has_many :hitchhikers, through: :trips
+ 
 
   def accepted_by(user)
     # @ride.driver_user_id = @current_user.id

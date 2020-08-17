@@ -1,0 +1,18 @@
+<h1>Create a Trip</h1>
+
+<%#  BASIC LEVEL HARD CODE HTML
+<form action="/trips" method="POST"> 
+%>
+
+<%= form_tag("/trips") do %>
+  <%= label_tag "departure"%>
+  <%= text_field_tag "departure" %>
+  <%= label_tag "destination"%>
+  <%= text_field_tag "destination"%>
+
+  <%= submit_tag value="Create a Trip"%>
+<% end %>
+
+
+<%# HIGHEST LEVEL OF ABSTRACTION USING ActionView MAGIC IN RAILS
+<%= form_for(@trips) %> 

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # used 'rails routes' helper command to generate all 
   #   typical CRUD action-related RESTful routes
   resources :rides
+  resources :trips
 
   root 'application#home'
 end

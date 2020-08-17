@@ -1,8 +1,8 @@
 Planning a Hitchhiker Rideshare App
 
-  * A hitchhiker can sign up and note a trip for which they need rides.
-  * A driver can sign up and denote a drive they plan to take and may share rides to hitchhikers.
-
+  * A hitchhiker can sign up and add a trip for which they need a/many rides.
+  * Drivers can get notified of hitchhikers needing a trip in their area and offer full or partial ride.  If partial ride is offered, the hitchhiker can request a new ride from ride dropoff location to final destination.
+  * STRETCH GOAL: Pickup another hitchhiker along driver's route.
 
 
 GET /signup
@@ -31,14 +31,7 @@ GET /logout
 POST /trips
  
 GET /trips
- show list of all trips
- 
-GET /drives
- 
-POST /drives
- 
-GET /drives
- show list of all drives -->
+ show list of all trips -->
  
  
 GET /rides/new 
